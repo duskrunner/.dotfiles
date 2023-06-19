@@ -1,10 +1,10 @@
 local plugins = {
   {
-    "chistoomey/vim-tmux-navigator",
+    "christoomey/vim-tmux-navigator",
     lasy = false,
   },
   {
-    "williamboman/mason.vim",
+    "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
       "dockerfile-language-server",
