@@ -99,3 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias nvim=~/nvim/bin/nvim
+alias vim=~/nvim/bin/nvim
+alias vi=~/nvim/bin/nvim
