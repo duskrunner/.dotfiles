@@ -4,6 +4,19 @@ local plugins = {
     lasy = false,
   },
   {
+    "williamboman/mason.vim",
+    opts = {
+      ensure_installed = {
+      "dockerfile-language-server",
+      "eslint-lsp",
+      "eslint_d",
+      "lua-language-server",
+      "prettierd",
+      "typescript-language-server",
+      }
+    }
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "jose-elias-alvarez/null-ls.nvim",
