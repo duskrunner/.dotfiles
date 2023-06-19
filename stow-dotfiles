@@ -8,7 +8,9 @@ if [[ -z $DOTFILES ]]; then
     DOTFILES=$HOME/.dotfiles
 fi
 
+echo "Removing .zshrc and custom nvchad config"
 rm $HOME/.zshrc
+rm $HOME/.config/nvim/lua/custom/
 
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
