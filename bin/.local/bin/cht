@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+langs=$(echo "c cpp typescript javascript lua docker docker-compose ansible" | tr " " "\n")
+
+core_utils=$(echo "find sed" | tr " " "\n")
+
+selected=$(echo -e "$langs\n$core_utils" | fzf)
+
+read -p "Question: " question
+
+if echo "$langs" | grep -qs $selected; then
+  curl -vs cht.sh/$selected/$(echo "$question" | tr " " "+") | less -R
+else
+  curl cht.sh/$selected~$question | less -R
+fi
