@@ -1,18 +1,12 @@
 #!/usr/bin/env zsh
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="nvchad,vim,zsh,tmux"
+    STOW_FOLDERS="nvchad,vim,zsh,tmux,bin"
 fi
 
 if [[ -z $DOTFILES ]]; then
     DOTFILES=$HOME/.dotfiles
 fi
-
-echo "Removing .zshrc and custom nvchad config"
-rm $HOME/.zshrc
-rm -rf $HOME/.config/nvim/lua/custom/
-rm $HOME/.config/tmux/tmux.conf
-rm $HOME/.vimrc
 
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do

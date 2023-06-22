@@ -8,13 +8,18 @@ local plugins = {
     opts = {
       ensure_installed = {
       "dockerfile-language-server",
-      "eslint-lsp",
       "eslint_d",
       "lua-language-server",
       "prettierd",
       "typescript-language-server",
       "clangd",
-      "clang-format"
+      "clang-format",
+      "gopls",
+      "gofumpt",
+      "goimports-reviser",
+      "golines",
+      "rust-analyzer",
+      "rustfmt"
       }
     }
   },
