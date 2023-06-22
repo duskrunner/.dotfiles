@@ -13,6 +13,8 @@ local plugins = {
       "lua-language-server",
       "prettierd",
       "typescript-language-server",
+      "clangd",
+      "clang-format"
       }
     }
   },

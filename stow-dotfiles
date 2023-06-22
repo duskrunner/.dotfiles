@@ -10,7 +10,9 @@ fi
 
 echo "Removing .zshrc and custom nvchad config"
 rm $HOME/.zshrc
-rm $HOME/.config/nvim/lua/custom/
+rm -rf $HOME/.config/nvim/lua/custom/
+rm $HOME/.config/tmux/tmux.conf
+rm $HOME/.vimrc
 
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do

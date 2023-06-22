@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-langs=$(echo "c cpp typescript javascript lua docker docker-compose ansible" | tr " " "\n")
+langs=$(echo "c cpp typescript javascript lua docker docker-compose ansible git" | tr " " "\n")
 
 core_utils=$(echo "find sed" | tr " " "\n")
 
