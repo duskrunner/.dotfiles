@@ -57,6 +57,23 @@ local plugins = {
 			require("custom.configs.null-ls")
 		end,
 	},
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		config = true,
+		lazy = false,
+		init = function()
+			local Terminal = require("toggleterm.terminal").Terminal
+			local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+
+			function _lazygit_toggle()
+				lazygit:toggle()
+			end
+
+			vim.api.nvim_set_keymap("n", "<A-g>", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+		end,
+	},
+	{ "christoomey/vim-tmux-navigator", lazy = false },
 }
 
 return plugins
