@@ -1,5 +1,4 @@
 local plugins = {
-	{ "christoomey/vim-tmux-navigator", lasy = false },
 	{
 		"williamboman/mason.nvim",
 		opts = {
@@ -18,6 +17,29 @@ local plugins = {
 				"rust-analyzer",
 				"rustfmt",
 				"stylua",
+			},
+		},
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			ensure_installed = {
+				"html",
+				"css",
+				"bash",
+				"javascript",
+				"typescript",
+				"rust",
+				"go",
+				"query",
+				"tsx",
+				"vim",
+				"vimdoc",
+				"lua",
+				"c",
+				"cpp",
+				"dockerfile",
+				"yaml",
 			},
 		},
 	},
