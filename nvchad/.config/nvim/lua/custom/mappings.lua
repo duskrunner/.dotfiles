@@ -1,5 +1,5 @@
 local M = {}
-M.abc = {
+M.vim_tmux = {
 	n = {
 		["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
 		["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
