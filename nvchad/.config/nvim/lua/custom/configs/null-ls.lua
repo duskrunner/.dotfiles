@@ -13,8 +13,11 @@ local sources = {
 	formatting.clang_format,
 	formatting.rustfmt,
 	formatting.stylua,
+	formatting.black,
 	lint.shellcheck,
 	lint.eslint_d,
+	lint.ruff,
+	lint.mypy,
 }
 
 null_ls.setup({
