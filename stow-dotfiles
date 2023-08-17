@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="nvchad,vim,zsh,tmux,bin"
+    STOW_FOLDERS="nvchad,vim,zsh,tmux,bin,weztrem"
 fi
 
 if [[ -z $DOTFILES ]]; then
@@ -12,6 +12,6 @@ for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
     echo "stow $folder"
     stow -D $folder
-    stow $folder
+    stow --no-folding $folder
 done
 
