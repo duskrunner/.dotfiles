@@ -141,11 +141,33 @@ local plugins = {
 	},
 	{ "christoomey/vim-tmux-navigator", lazy = false },
 	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			"nvim-telescope/telescope-live-grep-args.nvim",
+		},
+		opts = {
+			pickers = {
+				find_files = {
+					hidden = true,
+				},
+				live_grep = {
+					additional_args = { "--hidden" },
+				},
+				find_string = {
+					additional_args = { "--hidden" },
+				},
+			},
+			config = function()
+				require("telescope").load_extension("live_grep_args")
+			end,
+		},
+	},
+	{
 		"nvim-tree/nvim-tree.lua",
 		opts = {
 			hijack_cursor = true,
 			sync_root_with_cwd = true,
-			git = { enable = true },
+			git = { enable = true, ignore = false },
 			renderer = {
 				highlight_git = true,
 				full_name = true,
