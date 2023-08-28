@@ -50,6 +50,7 @@ local plugins = {
 			},
 		},
 	},
+	{ "Bekaboo/dropbar.nvim", lazy = false },
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
