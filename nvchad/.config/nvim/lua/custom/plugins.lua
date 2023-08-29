@@ -23,6 +23,7 @@ local plugins = {
 				"ruff",
 				"black",
 				"debugpy",
+				"delve",
 			},
 		},
 	},
@@ -99,6 +100,14 @@ local plugins = {
 		"mfussenegger/nvim-dap",
 		config = function(_, _)
 			require("core.utils").load_mappings("dap")
+		end,
+	},
+	{
+		"leoluz/nvim-dap-go",
+		ft = "go",
+		dependencies = "mfussenegger/nvim-dap",
+		config = function(_, opts)
+			require("dap-go").setup(opts)
 		end,
 	},
 	{
