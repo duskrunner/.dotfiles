@@ -17,7 +17,7 @@ M.move_line = {
 M.telescope = {
 	n = {
 		["<leader>fg"] = {
-			":lua require('telesope').extentions.live_grep_args.live_grep_args()<CR>",
+			":lua require('telescope').extentions.live_grep_args.live_grep_args()<CR>",
 			"Live grep with args",
 		},
 	},
