@@ -24,6 +24,7 @@ local plugins = {
 				"black",
 				"debugpy",
 				"delve",
+				"css-lsp",
 			},
 		},
 	},
@@ -48,10 +49,15 @@ local plugins = {
 				"dockerfile",
 				"yaml",
 				"python",
+				"jsdoc",
 			},
 		},
 	},
 	{ "Bekaboo/dropbar.nvim", lazy = false },
+	{
+		"kkoomen/vim-doge",
+		lazy = false,
+	},
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {

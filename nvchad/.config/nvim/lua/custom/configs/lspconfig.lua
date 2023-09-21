@@ -3,7 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")
-local servers = { "tsserver", "ansiblels", "dockerls" }
+local servers = { "tsserver", "ansiblels", "dockerls", "cssls" }
 
 lspconfig.clangd.setup({
 	on_attach = function(client, bufnr)
