@@ -226,9 +226,6 @@ local plugins = {
 			},
 		},
 	},
-	{
-		"luk400/vim-jukit",
-	},
 }
 
 return plugins
