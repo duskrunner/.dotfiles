@@ -53,6 +53,17 @@ local plugins = {
 			},
 		},
 	},
+	{
+		"nvimdev/lspsaga.nvim",
+		event = "LspAttach",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
+	},
 	{ "Bekaboo/dropbar.nvim", lazy = false },
 	{
 		"kkoomen/vim-doge",
@@ -123,7 +134,7 @@ local plugins = {
 		dependencies = {
 			"mfussenegger/nvim-dap",
 		},
-		config = function(_, opts)
+		config = function()
 			local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
 			require("dap-python").setup(path)
 		end,

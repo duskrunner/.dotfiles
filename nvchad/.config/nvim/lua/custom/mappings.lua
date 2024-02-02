@@ -1,4 +1,9 @@
 local M = {}
+M.lsp_saga = {
+	n = {
+		["<leader>ca"] = { ":Lspsaga code_action<CR>", "Code actions" },
+	},
+}
 M.vim_tmux = {
 	n = {
 		["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
@@ -10,8 +15,8 @@ M.vim_tmux = {
 
 M.move_line = {
 	n = {
+		["<A-k>"] = { "ddkP", "Move line up" },
 		["<A-j>"] = { "ddp", "Move line down" },
-		["<A-k>"] = { "ddhP", "Move line up" },
 	},
 }
 M.telescope = {
