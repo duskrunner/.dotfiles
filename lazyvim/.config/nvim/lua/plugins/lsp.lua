@@ -24,6 +24,9 @@ return {
         "pyright", -- lsp
         "black", -- formatter
         "mypy", -- typechecker
+
+        --arduino
+        "arduino-language-server",
       }
 
       opts.ensure_installed = opts.ensure_installed or {}
