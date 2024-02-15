@@ -27,10 +27,32 @@ return {
 
         --arduino
         "arduino-language-server",
+
+        --js/ts
+        "prettierd", --formatter
+        "eslint_d", --linter
       }
 
       opts.ensure_installed = opts.ensure_installed or {}
       vim.list_extend(opts.ensure_installed, ensure_installed)
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = function(_, opts)
+      -- get default config
+
+      local MY_FQBN = "arduino:avr:uno"
+      local arduino_default_config = require("lspconfig").arduino_language_server.document_config.default_config
+      arduino_default_config.cmd = {
+        "arduino-language-server",
+        "-cli-config",
+        "~/.arduino15/arduino-cli.yaml",
+        "-fqbn",
+        MY_FQBN,
+      }
+
+      opts.servers.arduino_language_server = arduino_default_config
     end,
   },
   {
@@ -47,6 +69,8 @@ return {
 
       local extend_formatters_with = {
         python = { "ruff_fix", "ruff_format" },
+        javascript = { "prettierd" },
+        typescript = { "prettierd" },
       }
       local replace_formatters_with = {}
 
@@ -70,6 +94,8 @@ return {
 
       local linters_by_ft = {
         python = { "mypy" },
+        typescript = { "eslint_d" },
+        javascript = { "eslint_d" },
       }
 
       for ft, linters_ in pairs(linters_by_ft) do
