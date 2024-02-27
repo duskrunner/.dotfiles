@@ -13,6 +13,17 @@ local function prefer_bin_from_venv(executable_name)
   return mason_path
 end
 
+local function swap_key_value(t)
+  local swapped = {}
+  for linter, fts in pairs(t) do
+    for _, ft in ipairs(fts) do
+      swapped[ft] = swapped[ft] or {}
+      vim.list_extend(swapped[ft], { linter })
+    end
+  end
+  return swapped
+end
+
 return {
   {
     "williamboman/mason.nvim",
@@ -70,12 +81,14 @@ return {
       formatters.stylua.args =
         vim.list_extend({ "--indent-type", "Spaces", "--indent-width", "2" }, formatters.stylua.args)
 
-      local extend_formatters_with = {
-        python = { "ruff_fix", "ruff_format" },
-        javascript = { "prettierd" },
-        typescript = { "prettierd" },
-        arduino = { "clang-format" },
+      local ft_by_formatter = {
+        ruff_fix = { "python" },
+        ruff_format = { "python" },
+        prettierd = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+        clang_format = { "arduino" },
       }
+
+      local extend_formatters_with = swap_key_value(ft_by_formatter)
       local replace_formatters_with = {}
 
       for ft, formatters_ in pairs(extend_formatters_with) do
@@ -96,11 +109,12 @@ return {
       linters.mypy.cmd = prefer_bin_from_venv("mypy")
       linters.mypy.args = vim.list_extend({ "--check-untyped-defs" }, linters.mypy.args)
 
-      local linters_by_ft = {
-        python = { "mypy" },
-        typescript = { "eslint_d" },
-        javascript = { "eslint_d" },
+      local linter_to_fts = {
+        mypy = { "python" },
+        eslint_d = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
       }
+
+      local linters_by_ft = swap_key_value(linter_to_fts)
 
       for ft, linters_ in pairs(linters_by_ft) do
         opts.linters_by_ft[ft] = opts.linters_by_ft[ft] or {}
