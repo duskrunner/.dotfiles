@@ -18,19 +18,22 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       local ensure_installed = {
-        -- python
+        -- Python
         "ruff-lsp", -- lsp
         "ruff", -- linter
         "pyright", -- lsp
         "black", -- formatter
         "mypy", -- typechecker
 
-        --arduino
+        -- Arduino
         "arduino-language-server",
 
         --js/ts
         "prettierd", --formatter
         "eslint_d", --linter
+
+        -- C
+        "clang-format",
       }
 
       opts.ensure_installed = opts.ensure_installed or {}
@@ -71,6 +74,7 @@ return {
         python = { "ruff_fix", "ruff_format" },
         javascript = { "prettierd" },
         typescript = { "prettierd" },
+        arduino = { "clang-format" },
       }
       local replace_formatters_with = {}
 
