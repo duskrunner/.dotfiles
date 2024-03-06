@@ -16,6 +16,12 @@ return {
   config = function()
     require('telescope').setup {
       extensions = {
+        themes = {
+          persist = {
+            enabled = true,
+            path = vim.fn.stdpath 'config' .. '/lua/config/current-colorscheme.lua',
+          },
+        },
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
         },
