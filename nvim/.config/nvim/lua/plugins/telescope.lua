@@ -41,9 +41,13 @@ return {
     end, { desc = '[S]earch [A]ll [F]iles' })
     vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+    -- TODO: Find out difference between grep_string and live_grep
+    vim.keymap.set('n', '<leader>saw', function()
+      builtin.grep_string { additional_args = { '--hidden' } }
+    end, { desc = '[S]earch [A]ll current [W]ord' })
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sag', function()
-      builtin.live_grep { hidden = true, no_ignore = true }
+      builtin.live_grep { additional_args = { '--hidden' } }
     end, { desc = '[S]earch [A]ll by [G]rep' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })

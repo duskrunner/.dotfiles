@@ -3,6 +3,7 @@ return {
   cmd = 'Neotree',
   dependencies = {
     { 'MunifTanjim/nui.nvim', lazy = true },
+    { 'nvim-tree/nvim-web-devicons', lazy = true },
   },
   keys = {
     {
