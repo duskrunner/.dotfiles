@@ -304,7 +304,6 @@ require('lazy').setup {
 
   require 'plugins.nvim-cmp',
   require 'plugins.LuaSnip',
-  unpack(require 'config.colorschemes'),
 
   -- Highlight todo, notes, etc in comments
   { -- Collection of various small independent plugins/modules
@@ -368,6 +367,7 @@ require('lazy').setup {
     end,
   },
 
+  unpack(require 'config.colorschemes'),
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- put them in the right spots if you want.

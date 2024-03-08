@@ -1,5 +1,5 @@
 -- TODO: think about lazyloading only scheme used in current-colorscheme.lua
-return {
+local colorschemes = {
   {
     'folke/tokyonight.nvim',
     lazy = false,
@@ -8,4 +8,8 @@ return {
       vim.cmd.hi 'Comment gui=none'
     end,
   },
+  { 'samharju/synthweave.nvim', lazy = false, priority = 1000 },
+  { 'tiagovla/tokyodark.nvim', lazy = false, priority = 1000 },
 }
+
+return colorschemes
