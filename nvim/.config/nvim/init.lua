@@ -75,6 +75,7 @@ require('lazy').setup {
   require 'plugins.trouble',
   require 'plugins.todo-comments',
   require 'plugins.vim-startuptime',
+  require 'plugins.nvim-lint',
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
