@@ -18,6 +18,10 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         sh = { 'shfmt' },
+        javascript = { 'prettierd' },
+        typescript = { 'prettierd' },
+        javascriptreact = { 'prettierd' },
+        typescriptreact = { 'prettierd' },
       },
       formatters = {
         injected = { options = { ignore_errors = true } },
