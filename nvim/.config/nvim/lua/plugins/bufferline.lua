@@ -1,5 +1,6 @@
 return {
   'akinsho/bufferline.nvim',
+  dependencies = { { 'echasnovski/mini.bufremove' } },
   event = 'VeryLazy',
   keys = {
     { '<leader>bp', '<Cmd>BufferLineTogglePin<CR>', desc = 'Toggle pin' },
