@@ -1,3 +1,5 @@
+local prefer_bin_from_venv = require('utils.init').prefer_bin_from_venv
+
 return {
   'mfussenegger/nvim-lint',
   event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
@@ -9,6 +11,8 @@ return {
       javascriptreact = { 'eslint_d' },
       typescriptreact = { 'eslint_d' },
       sh = { 'shellcheck' },
+      python = { 'mypy' },
+
       -- Use the "*" filetype to run linters on all filetypes.
       -- ['*'] = { 'global linter' },
       -- Use the "_" filetype to run linters on filetypes that don't have other linters configured.
@@ -18,7 +22,8 @@ return {
   config = function(_, opts)
     local lint = require 'lint'
     lint.linters_by_ft = opts.linters_by_ft
-
+    lint.linters.mypy.cmd = prefer_bin_from_venv 'mypy'
+    lint.linters.mypy.args = vim.list_extend({ '--check-untyped-defs' }, lint.linters.mypy.args)
     local function debounce(ms, fn)
       local timer = vim.loop.new_timer()
       return function(...)

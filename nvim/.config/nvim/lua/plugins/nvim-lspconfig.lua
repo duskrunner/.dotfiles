@@ -91,8 +91,9 @@ return {
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
       tsserver = {},
-      --
       bashls = {},
+      ruff_lsp = {},
+      pyright = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes { ...},
@@ -134,7 +135,12 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     local formatters = require('plugins.conform').opts().formatters_by_ft
     local linters = require('plugins.nvim-lint').opts.linters_by_ft
-    for _, f in pairs(formatters) do
+    local mapper = { python = { 'ruff' } }
+    for lang, f in pairs(formatters) do
+      if mapper[lang] then
+        print(f)
+        f = mapper[lang]
+      end
       vim.list_extend(ensure_installed, f)
     end
     for _, l in pairs(linters) do

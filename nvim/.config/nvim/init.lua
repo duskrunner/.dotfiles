@@ -51,6 +51,7 @@ vim.opt.rtp:prepend(lazypath)
 require 'config'
 
 require('lazy').setup {
+  require 'plugins.nvim-lspconfig',
   'tpope/vim-sleuth',
   require 'plugins.persistence',
   require 'plugins.dashboard-nvim',
@@ -71,15 +72,14 @@ require('lazy').setup {
   require 'plugins.todo-comments',
   require 'plugins.vim-startuptime',
   require 'plugins.nvim-lint',
-  require 'plugins.nvim-lspconfig',
   require 'plugins.mini.pairs',
   require 'plugins.mini.surround',
   require 'plugins.Comment_nvim',
   require 'plugins.conform',
-  require 'plugins.nvim-cmp',
   require 'plugins.LuaSnip',
   require 'plugins.nvim-treesitter',
   require 'plugins.nvim-treesitter-context',
   require 'plugins.nvim-ts-autotag',
+  require 'plugins.nvim-cmp',
   unpack(require 'config.colorschemes'),
 }
