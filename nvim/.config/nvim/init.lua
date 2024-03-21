@@ -79,7 +79,10 @@ require('lazy').setup {
   require 'plugins.LuaSnip',
   require 'plugins.nvim-treesitter',
   require 'plugins.nvim-treesitter-context',
+  require 'plugins.diffview',
+  require 'plugins.doge',
   require 'plugins.nvim-ts-autotag',
   require 'plugins.nvim-cmp',
+  require 'plugins.toggleterm',
   unpack(require 'config.colorschemes'),
 }

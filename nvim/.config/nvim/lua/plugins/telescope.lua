@@ -70,7 +70,7 @@ return {
       }
     end, { desc = '[S]earch [/] in Open Files' })
 
-    vim.keymap.set('n', '<leader>sn', function()
+    vim.keymap.set('n', '<leader>snf', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config', hidden = true, no_ignore = true, follow = true }
     end, { desc = '[S]earch [N]eovim files' })
   end,
