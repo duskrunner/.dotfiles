@@ -28,6 +28,8 @@ return {
         javascriptreact = { 'prettierd' },
         typescriptreact = { 'prettierd' },
         python = { 'ruff_fix', 'ruff_format' },
+        markdown = { 'mdformat' },
+        yaml = { 'yamlfmt' },
       },
       formatters = {
         injected = { options = { ignore_errors = true } },

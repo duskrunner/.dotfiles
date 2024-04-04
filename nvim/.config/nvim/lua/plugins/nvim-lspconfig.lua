@@ -90,10 +90,18 @@ return {
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
+      -- NOTE: Temp LSPs for work
+      azure_pipelines_ls = {},
+      -- TS/JS
       tsserver = {},
+      -- Bash
       bashls = {},
+      -- Python
       ruff_lsp = {},
       pyright = {},
+      --Markdown,
+      marksman = {},
+      -- Lua
       lua_ls = {
         -- cmd = {...},
         -- filetypes { ...},
