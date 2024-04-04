@@ -84,5 +84,6 @@ require('lazy').setup {
   require 'plugins.nvim-ts-autotag',
   require 'plugins.nvim-cmp',
   require 'plugins.toggleterm',
+  require 'plugins.markdown-preview',
   unpack(require 'config.colorschemes'),
 }

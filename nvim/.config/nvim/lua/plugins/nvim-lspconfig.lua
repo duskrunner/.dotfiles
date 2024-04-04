@@ -69,7 +69,7 @@ return {
     --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
+    local lspconfig = require 'lspconfig'
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
     --
@@ -90,8 +90,19 @@ return {
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
+
       -- NOTE: Temp LSPs for work
-      azure_pipelines_ls = {},
+      azure_pipelines_ls = {
+        root_dir = lspconfig.util.root_pattern '.git',
+        settings = {
+          yaml = {
+            ['https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json'] = {
+              '.build/pipelines/**/*.y*l',
+            },
+          },
+        },
+      },
+
       -- TS/JS
       tsserver = {},
       -- Bash

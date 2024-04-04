@@ -1,12 +1,10 @@
-local prefer_bin_from_venv = require('utils.init').prefer_bin_from_venv
-
 return {
   'stevearc/conform.nvim',
   dependencies = { 'mason.nvim' },
   opts = function()
-    -- local formatters = require 'conform.formatters'
-    -- formatters.ruff_fix.command = prefer_bin_from_venv 'ruff'
-    -- formatters.ruff_format.command = prefer_bin_from_venv 'ruff'
+    local formatters = require 'conform.formatters'
+    formatters.yamlfmt.args = vim.list_extend({ '-conf', vim.fs.find('.yamlfmt.yml', { upward = true })[1] }, formatters.yamlfmt.args)
+
     ---@class ConformOpts
     local opts = {
       notify_on_error = false,
