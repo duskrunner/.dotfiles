@@ -92,12 +92,13 @@ return {
       -- But for many setups, the LSP (`tsserver`) will work just fine
 
       -- NOTE: Temp LSPs for work
-      azure_pipelines_ls = {
-        root_dir = lspconfig.util.root_pattern '.git',
+      yamlls = {
         settings = {
           yaml = {
-            ['https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json'] = {
-              '.build/pipelines/**/*.y*l',
+            schemas = {
+              ['https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json'] = {
+                '.build/pipelines/**/*.y*l',
+              },
             },
           },
         },
