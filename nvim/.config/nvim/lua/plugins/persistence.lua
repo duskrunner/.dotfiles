@@ -1,7 +1,12 @@
 return {
   'folke/persistence.nvim',
   event = 'BufReadPre',
-  opts = { options = vim.opt.sessionoptions:get() },
+  opts = {
+    options = vim.opt.sessionoptions:get(),
+    pre_save = function()
+      require('neo-tree.sources.manager').close_all()
+    end,
+  },
   -- stylua: ignore
   keys = {
     { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
