@@ -7,13 +7,13 @@ return {
     {
       '<leader>ut',
       function()
-        local Util = require 'lazyvim.util'
+        local Util = require 'utils'
         local tsc = require 'treesitter-context'
         tsc.toggle()
-        if Util.inject.get_upvalue(tsc.toggle, 'enabled') then
-          Util.info('Enabled Treesitter Context', { title = 'Option' })
+        if Util.get_upvalue(tsc.toggle, 'enabled') then
+          vim.notify('Enabled Treesitter Context', vim.log.levels.INFO)
         else
-          Util.warn('Disabled Treesitter Context', { title = 'Option' })
+          vim.notify('Disabled Treesitter Context', vim.log.levels.WARN)
         end
       end,
       desc = 'Toggle Treesitter Context',

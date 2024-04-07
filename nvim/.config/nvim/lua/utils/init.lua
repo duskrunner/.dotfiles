@@ -14,6 +14,20 @@ M.prefer_bin_from_venv = function(executable_name)
   return mason_path
 end
 
+function M.get_upvalue(func, name)
+  local i = 1
+  while true do
+    local n, v = debug.getupvalue(func, i)
+    if not n then
+      break
+    end
+    if n == name then
+      return v
+    end
+    i = i + 1
+  end
+end
+
 M.map = function(mode, lhs, rhs, opts)
   local keys = require('lazy.core.handler').handlers.keys
   ---@cast keys LazyKeysHandler

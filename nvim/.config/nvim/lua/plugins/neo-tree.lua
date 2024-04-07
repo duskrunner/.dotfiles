@@ -13,7 +13,6 @@ return {
       end,
       desc = 'Explorer NeoTree (root dir)',
     },
-    { '<leader>e', '<leader>fe', desc = 'Explorer NeoTree (root dir)', remap = true },
     {
       '<leader>ge',
       function()
