@@ -32,6 +32,11 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.diagnostic.config { float = { border = 'rounded' } }
 
+vim.diagnostic.config {
+  virtual_text = {
+    prefix = '◉',
+  },
+}
 require 'config.autocommands'
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',

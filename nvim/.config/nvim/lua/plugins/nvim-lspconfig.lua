@@ -6,7 +6,6 @@ return {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    { 'folke/neodev.nvim', opts = {} },
     { 'j-hui/fidget.nvim', opts = {} },
   },
   config = function()
@@ -69,6 +68,7 @@ return {
     --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
     --
@@ -78,7 +78,9 @@ return {
     --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
     local servers = {
+
       -- clangd = {},
       -- gopls = {},
       -- pyright = {},
@@ -106,12 +108,13 @@ return {
       html = {},
       -- TS/JS
       tsserver = {},
+      eslint = {},
       -- Bash
       bashls = {},
       -- Python
       ruff_lsp = {},
       pyright = {},
-      --Markdown,
+      -- Markdown,
       marksman = {},
       -- Lua
       lua_ls = {
@@ -123,14 +126,7 @@ return {
             runtime = { version = 'LuaJIT' },
             workspace = {
               checkThirdParty = false,
-              -- Tells lua_ls where to find all the Lua files that you have loaded
-              -- for your neovim configuration.
-              library = {
-                '${3rd}/luv/library',
-                unpack(vim.api.nvim_get_runtime_file('', true)),
-              },
-              -- If lua_ls is really slow on your computer, you can try this instead:
-              -- library = { vim.env.VIMRUNTIME },
+              library = vim.api.nvim_get_runtime_file('', true),
             },
             completion = {
               callSnippet = 'Replace',
@@ -153,12 +149,17 @@ return {
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
+    local ls_mapper = { harper_ls = 'harper-ls' }
+    for i, ls in ipairs(ensure_installed) do
+      if ls_mapper[ls] then
+        ensure_installed[i] = ls_mapper[ls]
+      end
+    end
     local formatters = require('plugins.conform').opts().formatters_by_ft
     local linters = require('plugins.nvim-lint').opts.linters_by_ft
     local mapper = { python = { 'ruff' } }
     for lang, f in pairs(formatters) do
       if mapper[lang] then
-        print(f)
         f = mapper[lang]
       end
       vim.list_extend(ensure_installed, f)
