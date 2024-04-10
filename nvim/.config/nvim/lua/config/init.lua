@@ -1,10 +1,10 @@
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'VeryLazy',
-  callback = function()
-    require 'config.keymaps'
-    vim.api.nvim_create_user_command('LazyHealth', function()
-      vim.cmd [[Lazy! load all]]
-      vim.cmd [[checkhealth]]
-    end, { desc = 'Load all plugins and run :checkhealth' })
-  end,
-})
+-- NOTE: Init lazy or install if not installed
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+end
+vim.opt.rtp:prepend(lazypath)
+
+require 'config.options'
+require 'config.autocommands'

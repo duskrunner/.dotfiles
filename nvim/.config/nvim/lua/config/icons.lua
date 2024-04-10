@@ -15,6 +15,8 @@ return {
     Hint = ' ',
     Info = ' ',
   },
+  mason = { package_installed = ' ', package_uninstalled = '󱧔 ', package_pending = '󰌚 ' },
+
   git = {
     added = ' ',
     modified = ' ',
