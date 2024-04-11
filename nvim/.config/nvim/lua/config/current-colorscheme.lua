@@ -1,1 +1,1 @@
-vim.cmd("colorscheme synthweave")
+vim.cmd("colorscheme night-owl")

@@ -14,7 +14,27 @@ end)
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 config.color_scheme = "Tokyo Night"
-config.font = wezterm.font("MesloLGLDZNerdFont")
+config.font = wezterm.font("MesloLGLDZ Nerd Font Propo")
+config.font_rules = {
+	{
+		italic = false,
+		intensity = "Normal",
+		font = wezterm.font("MesloLGLDZ Nerd Font Propo", { weight = "Regular" }),
+	},
+	{
+		intensity = "Bold",
+		font = wezterm.font("MesloLGLDZ Nerd Font Propo", { weight = "Bold" }),
+	},
+	{
+		italic = true,
+		font = wezterm.font("MesloLGLDZ Nerd Font Propo", { italic = true }),
+	},
+	{
+		intensity = "Bold",
+		italic = true,
+		font = wezterm.font("MesloLGLDZ Nerd Font Propo", { weight = "Bold", italic = true }),
+	},
+}
 config.font_size = 11.5
 config.cell_width = 1.0
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }

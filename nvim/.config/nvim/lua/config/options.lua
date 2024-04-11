@@ -26,6 +26,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.termguicolors = true
+vim.wo.fillchars = 'eob: '
 
 vim.diagnostic.config { float = { border = 'rounded' }, virtual_text = {
   prefix = '◉',
