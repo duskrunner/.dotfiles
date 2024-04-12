@@ -35,10 +35,5 @@ for _, language in ipairs { 'typescript', 'javascript', 'typescriptreact', 'java
       sourceMaps = true,
       userDataDir = false,
     },
-    {
-      name = '----- ↓ launch.json configs ↓ -----',
-      type = '',
-      request = 'launch',
-    },
   }
 end
