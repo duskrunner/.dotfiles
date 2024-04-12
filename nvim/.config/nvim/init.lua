@@ -37,5 +37,6 @@ require('lazy').setup({
   require 'plugins.markdown-preview',
   require 'plugins.icon-picker',
   require 'plugins.transparent',
+  require 'plugins.nvim-dap',
   unpack(require 'config.colorschemes'),
 }, { checker = { enabled = true, notify = true }, change_detection = { notify = true, enabled = true } })

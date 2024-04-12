@@ -57,7 +57,7 @@ return {
       --HTML
       html = {},
       -- TS/JS
-      tsserver = {},
+      tsserver = require 'plugins.lsp.tsserver',
       eslint = {},
       -- Bash
       bashls = {},
@@ -105,6 +105,7 @@ return {
     for _, l in pairs(linters) do
       vim.list_extend(ensure_installed, l)
     end
+
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
