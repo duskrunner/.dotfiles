@@ -2,7 +2,6 @@ vim.api.nvim_create_autocmd('User', {
   pattern = 'VeryLazy',
   callback = function()
     require 'config.keymaps'
-    vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = vim.api.nvim_get_hl_by_name('Normal', true).background or 0 })
     vim.api.nvim_create_user_command('LazyHealth', function()
       vim.cmd [[Lazy! load all]]
       vim.cmd [[checkhealth]]

@@ -13,7 +13,7 @@ wezterm.on("gui-startup", function()
 end)
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
-config.color_scheme = "Tokyo Night"
+config.color_scheme = "Black Metal (Venom) (base16)"
 config.font = wezterm.font("MesloLGLDZ Nerd Font Propo")
 config.font_rules = {
 	{
@@ -40,7 +40,7 @@ config.cell_width = 1.0
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 config.window_background_image = wezterm.home_dir .. "/Pictures/wallpaper.png"
 config.window_background_image_hsb = {
-	brightness = 0.1,
+	brightness = 0.05,
 	hue = 1.0,
 	saturation = 1.0,
 }

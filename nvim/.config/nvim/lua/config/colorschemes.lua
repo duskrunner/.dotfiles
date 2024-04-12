@@ -1,14 +1,9 @@
 -- TODO: think about lazyloading only scheme used in current-colorscheme.lua
 local colorschemes = {
-  'folke/tokyonight.nvim',
-  'samharju/synthweave.nvim',
-  'tiagovla/tokyodark.nvim',
-  'MaxSt/FlatColor',
-  'space-chalk/spacechalk.nvim',
-  'zootedb0t/citruszest.nvim',
   'oxfist/night-owl.nvim',
-  'barrientosvctor/abyss.nvim',
-  'scottmckendry/cyberdream.nvim',
+  'tsuzat/neosolarized.nvim',
+  'sjl/badwolf',
+  'srcery-colors/srcery-vim',
 }
 
 local function generateSchemeConfigs(plugins)

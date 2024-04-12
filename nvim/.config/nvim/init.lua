@@ -36,5 +36,6 @@ require('lazy').setup({
   require 'plugins.toggleterm',
   require 'plugins.markdown-preview',
   require 'plugins.icon-picker',
+  require 'plugins.transparent',
   unpack(require 'config.colorschemes'),
 }, { checker = { enabled = true, notify = true }, change_detection = { notify = true, enabled = true } })
