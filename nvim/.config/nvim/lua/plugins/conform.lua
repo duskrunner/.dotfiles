@@ -31,6 +31,7 @@ return {
         python = { 'ruff_fix', 'ruff_format' },
         markdown = { 'mdformat' },
         yaml = { 'yamlfmt' },
+        go = { 'goimports', 'gofumpt' },
       },
       formatters = {
         injected = { options = { ignore_errors = true } },

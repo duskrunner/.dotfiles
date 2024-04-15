@@ -7,7 +7,9 @@ return {
     'hrsh7th/cmp-path',
     'saadparwaiz1/cmp_luasnip',
   },
-  opts = function()
+  opts = function(_, opts)
+    opts.auto_brackets = opts.auto_brackets or {}
+    table.insert(opts.auto_brackets, 'python')
     vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'

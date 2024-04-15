@@ -58,32 +58,13 @@ return {
       opts = {
         automatic_installation = true,
         handlers = {},
-        ensure_installed = {},
+        ensure_installed = { 'debugpy', 'delve' },
       },
     },
     require 'plugins.dap.nvim-dap-go',
-    {
-      'microsoft/vscode-js-debug',
-      build = 'npm install --legacy-peer-deps --no-save && npx gulp vsDebugServerBundle && rm -rf out && mv dist out',
-      version = '1.*',
-    },
-    {
-      'mxsdev/nvim-dap-vscode-js',
-      config = function()
-        ---@diagnostic disable-next-line: missing-fields
-        require('dap-vscode-js').setup {
-          debugger_path = vim.fn.resolve(vim.fn.stdpath 'data' .. '/lazy/vscode-js-debug'),
-          adapters = {
-            'chrome',
-            'pwa-node',
-            'pwa-chrome',
-            'pwa-msedge',
-            'pwa-extensionHost',
-            'node-terminal',
-          },
-        }
-      end,
-    },
+    require 'plugins.dap.nvim-dap-python',
+    require 'plugins.dap.vscode-js-debug',
+    require 'plugins.dap.nvim-dap-vscode-js',
   },
   keys = {
     {
@@ -215,6 +196,5 @@ return {
       sign = type(sign) == 'table' and sign or { sign }
       vim.fn.sign_define('Dap' .. name, { text = sign[1], texthl = sign[2] or 'DiagnosticInfo', linehl = sign[3], numhl = sign[3] })
     end
-    require 'plugins.dap.js'
   end,
 }

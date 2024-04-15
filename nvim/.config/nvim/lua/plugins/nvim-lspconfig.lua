@@ -62,7 +62,7 @@ return {
       -- Bash
       bashls = {},
       -- Python
-      ruff_lsp = {},
+      ruff_lsp = require 'plugins.lsp.ruff_ls',
       pyright = {},
       -- Markdown,
       marksman = {},
@@ -81,6 +81,8 @@ return {
           },
         },
       },
+      -- Go
+      gopls = require 'plugins.lsp.gopls',
     }
 
     require('mason').setup {
@@ -106,6 +108,7 @@ return {
       vim.list_extend(ensure_installed, l)
     end
 
+    vim.list_extend(ensure_installed, { 'delve', 'debugpy' })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {

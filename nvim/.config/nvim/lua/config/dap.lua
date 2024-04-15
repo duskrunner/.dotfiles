@@ -1,4 +1,5 @@
 local dap = require 'dap'
+local dap_python = require 'dap-python'
 
 for _, language in ipairs { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' } do
   dap.configurations[language] = {
@@ -35,5 +36,10 @@ for _, language in ipairs { 'typescript', 'javascript', 'typescriptreact', 'java
       sourceMaps = true,
       userDataDir = false,
     },
+    require('dap.ext.vscode').load_launchjs(nil, { node = { 'javascript', 'javascriptreact', 'typescriptreact', 'typescript' } }),
   }
+end
+
+if os.getenv 'VIRTUAL_ENV' then
+  dap_python.setup(os.getenv 'VIRTUAL_ENV' .. '/bin/python')
 end
