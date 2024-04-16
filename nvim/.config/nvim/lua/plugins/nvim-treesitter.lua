@@ -23,6 +23,7 @@ return {
         'gomod',
         'gowork',
         'gosum',
+        'dockerfile',
       },
 
       auto_install = true,

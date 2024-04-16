@@ -11,7 +11,7 @@ return {
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+      group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
       callback = function(event)
         map('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = '[G]oto [D]efinition' })
         map('n', 'gr', require('telescope.builtin').lsp_references, { desc = '[G]oto [R]eferences' })
@@ -43,17 +43,22 @@ return {
 
     local servers = {
       -- NOTE: Temp LSPs for work
-      yamlls = {
-        settings = {
-          yaml = {
-            schemas = {
-              ['https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json'] = {
-                '.build/pipelines/**/*.y*l',
-              },
-            },
-          },
-        },
-      },
+      -- yamlls = {
+      --   settings = {
+      --     yaml = {
+      --       schemas = {
+      --         ['https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json'] = {
+      --           '.build/pipelines/**/*.y*l',
+      --         },
+      --       },
+      --     },
+      --   },
+      -- },
+
+      -- Yaml
+      yamlls = require 'plugins.lsp.yamlls',
+      -- Ansible
+      ansiblels = {},
       --HTML
       html = {},
       -- TS/JS
@@ -67,22 +72,12 @@ return {
       -- Markdown,
       marksman = {},
       -- Lua
-      lua_ls = {
-        settings = {
-          Lua = {
-            runtime = { version = 'LuaJIT' },
-            workspace = {
-              checkThirdParty = false,
-              library = vim.api.nvim_get_runtime_file('', true),
-            },
-            completion = {
-              callSnippet = 'Replace',
-            },
-          },
-        },
-      },
+      lua_ls = require 'plugins.lsp.lua_ls',
       -- Go
       gopls = require 'plugins.lsp.gopls',
+      -- Docker
+      dockerls = {},
+      docker_compose_language_service = {},
     }
 
     require('mason').setup {

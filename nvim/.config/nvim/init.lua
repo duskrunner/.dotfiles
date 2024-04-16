@@ -39,6 +39,7 @@ require('lazy').setup({
   require 'plugins.transparent',
   require 'plugins.nvim-dap',
   require 'plugins.venv-select',
+  require 'plugins.SchemaStore',
   unpack(require 'config.colorschemes'),
 }, { checker = { enabled = true, notify = true }, change_detection = { notify = true, enabled = true } })
 
