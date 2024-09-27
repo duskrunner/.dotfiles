@@ -1,12 +1,12 @@
 require 'config'
 
 require('lazy').setup({
+  require 'plugins.noice',
   require 'plugins.nvim-lspconfig',
   'tpope/vim-sleuth',
   require 'plugins.persistence',
   require 'plugins.dashboard-nvim',
   require 'plugins.dressing',
-  require 'plugins.noice',
   require 'plugins.bufferline',
   require 'plugins.lualine',
   require 'plugins.nvim-spectre',
@@ -41,6 +41,10 @@ require('lazy').setup({
   require 'plugins.venv-select',
   require 'plugins.SchemaStore',
   unpack(require 'config.colorschemes'),
-}, { checker = { enabled = true, notify = true }, change_detection = { notify = true, enabled = true } })
+}, {
+  checker = { enabled = true, notify = true },
+  change_detection = { notify = true, enabled = true },
+  lockfile = '~/.dotfiles/nvim/.config/nvim/lazy-lock.json',
+})
 
 require 'config.dap'

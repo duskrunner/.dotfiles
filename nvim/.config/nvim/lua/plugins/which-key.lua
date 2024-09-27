@@ -1,6 +1,7 @@
 return {
   'folke/which-key.nvim',
   event = 'VeryLazy',
+  version = '^2.1.0',
   config = function()
     require('which-key').setup()
     -- TODO: Write better keymap docs

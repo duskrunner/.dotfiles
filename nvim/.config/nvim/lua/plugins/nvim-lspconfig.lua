@@ -62,7 +62,7 @@ return {
       --HTML
       html = {},
       -- TS/JS
-      tsserver = require 'plugins.lsp.tsserver',
+      ts_ls = require 'plugins.lsp.tsserver',
       eslint = {},
       -- Bash
       bashls = {},
