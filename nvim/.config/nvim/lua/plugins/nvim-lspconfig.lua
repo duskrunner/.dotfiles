@@ -67,7 +67,7 @@ return {
       -- Bash
       bashls = {},
       -- Python
-      ruff_lsp = require 'plugins.lsp.ruff_ls',
+      ruff = require 'plugins.lsp.ruff',
       pyright = {},
       -- Markdown,
       marksman = {},

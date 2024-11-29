@@ -28,7 +28,7 @@ return {
         html = { 'prettierd' },
         json = { 'prettierd' },
         css = { 'prettierd' },
-        python = { 'ruff_fix', 'ruff_format' },
+        -- python = { 'ruff_fix', 'ruff_format' },
         markdown = { 'mdformat' },
         yaml = { 'yamlfmt' },
         go = { 'goimports', 'gofumpt' },
