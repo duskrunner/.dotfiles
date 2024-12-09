@@ -40,6 +40,7 @@ require('lazy').setup({
   require 'plugins.nvim-dap',
   require 'plugins.venv-select',
   require 'plugins.SchemaStore',
+  require 'plugins.rustaceanvim',
   unpack(require 'config.colorschemes'),
 }, {
   checker = { enabled = true, notify = true },

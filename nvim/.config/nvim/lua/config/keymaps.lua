@@ -12,13 +12,3 @@ map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save file' })
-map({ 'i', 's' }, '<Tab>', function()
-  if ls.expand_or_locally_jumpable() then
-    ls.expand_or_jump()
-  end
-end, { desc = 'luasnip jump next' })
-map({ 'i', 's' }, '<S-Tab>', function()
-  if ls.locally_jumpable(-1) then
-    ls.jump(-1)
-  end
-end, { desc = 'luasnip jump previous' })
