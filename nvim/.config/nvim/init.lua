@@ -41,6 +41,7 @@ require('lazy').setup({
   require 'plugins.venv-select',
   require 'plugins.SchemaStore',
   require 'plugins.rustaceanvim',
+  require 'plugins.undotree',
   unpack(require 'config.colorschemes'),
 }, {
   checker = { enabled = true, notify = true },
