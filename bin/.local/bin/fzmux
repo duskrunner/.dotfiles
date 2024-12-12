@@ -12,7 +12,7 @@ switch_to() {
 }
 
 new_window() {
-  tmux neww -n "console"
+  tmux neww -n console -c "$folder"
 }
 
 if tmux has-session -t="$session_name" 2>/dev/null; then
@@ -21,5 +21,5 @@ if tmux has-session -t="$session_name" 2>/dev/null; then
 fi
 
 tmux new-session -ds "$session_name" -c "$folder"
-switch_to
 new_window
+switch_to
