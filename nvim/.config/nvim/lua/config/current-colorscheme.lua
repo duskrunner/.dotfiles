@@ -1,1 +1,1 @@
-vim.cmd("colorscheme srcery")
+vim.cmd("colorscheme duskbox-dusk")

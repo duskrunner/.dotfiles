@@ -4,6 +4,7 @@ local colorschemes = {
   'tsuzat/neosolarized.nvim',
   'sjl/badwolf',
   'srcery-colors/srcery-vim',
+  'ih-hugh/duskbox',
 }
 
 local function generateSchemeConfigs(plugins)

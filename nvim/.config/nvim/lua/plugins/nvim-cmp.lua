@@ -18,6 +18,12 @@ return {
       completion = {
         completeopt = 'menu,menuone,noinsert',
       },
+      window = {
+        documentation = {
+          border = 'rounded',
+          winhighlight = 'Normal:Normal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None',
+        },
+      },
       mapping = cmp.mapping.preset.insert {
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
